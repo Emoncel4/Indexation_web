@@ -14,10 +14,15 @@ def extract_title(soup):
     return None
 
 def extract_description(soup):
-    return soup.find("p")
+    p = soup.find("p")
+    if p:
+        return p.get_text(strip=True)
+    return None
 
 def extract_links(soup):
     links = []
     for a in soup.find_all("a", href=True):
-        links.append(a["href"])
+        href = a.get("href")
+        if href:
+            links.append(href.strip())
     return links
