@@ -17,6 +17,6 @@ def parsing_allowed(url):
 
 from bs4 import BeautifulSoup
 #Parse une page html
-def parsing_html(html_doc):
+def parse_html(html_doc):
     soup = BeautifulSoup(html_doc, 'html.parser')
     return(soup)
